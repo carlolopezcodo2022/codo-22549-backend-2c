@@ -6,11 +6,11 @@ public class Persona {
 	private String idioma;//nace
 	private String[] otrosIdiomas;//aprende
 	
-	public Persona(String nombre, String idioma) {
-		setNombre(nombre);
-		setIdioma(idioma);
+	public Persona(String nombre, String idioma) {//f6
+		setNombre(nombre);//f5
+		setIdioma(idioma);//f6
 		setOtrosIdiomas(new String[0]);
-	}
+	}//f6 f7
 	
 	private void setOtrosIdiomas(String[] idiomas) {
 		this.otrosIdiomas = idiomas; 
