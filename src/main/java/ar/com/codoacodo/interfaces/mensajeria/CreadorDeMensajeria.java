@@ -5,7 +5,7 @@ public class CreadorDeMensajeria {
 	public static IEnviar crearMensajeria(String target) {
 		// Interface algo = new ClaseQueImplementaLaInterface();
 
-		IEnviar mensajeria = null;
+		IEnviar mensajeria = new DefaultEnviarImpl();
 		switch (target) {
 		case "A":
 			mensajeria = new EnviarMailImpl();
