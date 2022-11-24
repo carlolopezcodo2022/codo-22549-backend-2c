@@ -1,7 +1,10 @@
 package ar.com.codoacodo.herencia;
 
 //todas la clases en java hereden de object implicitamente
-public class Consola /*extends Object*/ {
+public abstract class Consola /*extends Object*/ {
+	
+	//new Consola();
+	
 	private String nombre;
 	protected Integer bit;
 	private String marca;
