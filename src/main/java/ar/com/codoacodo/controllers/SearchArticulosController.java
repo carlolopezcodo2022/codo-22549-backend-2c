@@ -14,17 +14,17 @@ import ar.com.codoacodo.dao.IArticuloDAO;
 import ar.com.codoacodo.dao.impl.ArticuloDAOMysqlImpl;
 import ar.com.codoacodo.domain.Articulo;
 
-@WebServlet("/FindAllArticulosController")
-public class FindAllArticulosController extends HttpServlet {
+@WebServlet("/SearchArticulosController")
+public class SearchArticulosController extends HttpServlet{
 
-	//http://localhost:8080/webapp/FindAllArticulosController
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String claveBusquda= req.getParameter("claveBusqueda");
+
 		IArticuloDAO dao = new ArticuloDAOMysqlImpl(); 
 		
 		List<Articulo> articulosBuscado = new ArrayList<>();
 		try {
-			articulosBuscado = dao.findAll();		
-			System.out.println(articulosBuscado);
+			articulosBuscado = dao.search(claveBusquda);		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -34,10 +34,5 @@ public class FindAllArticulosController extends HttpServlet {
 		
 		//redirect a otra pagina u otro servlet(Controller/WebServlet)
 		getServletContext().getRequestDispatcher("/listado.jsp").forward(req, resp);
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
-		doGet(req, resp);
 	}
 }
