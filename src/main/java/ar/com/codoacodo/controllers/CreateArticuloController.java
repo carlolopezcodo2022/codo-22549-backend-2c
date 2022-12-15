@@ -32,7 +32,6 @@ public class CreateArticuloController extends HttpServlet{
 		//control de errores se vera con detalle en el curso de spring
 		try {
 			dao.create(articulo);
-			System.out.println("Se dio de alta el articulo");
 		} catch (Exception e) {
 			e.printStackTrace();			
 		}

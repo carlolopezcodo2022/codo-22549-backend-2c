@@ -31,8 +31,10 @@
 						<!-- REPETIR/ITERAR SOBRE LA LISTA DE PRODUCTO QUE CARGUE EN EL CONTROLLER -->
 						<%
 							//capturar /bajar el listado del objeto request
+							Float total = 0f; 
 							List<Articulo> articulos = (List<Articulo>)request.getAttribute("productos");
 							for(Articulo articulo : articulos) {
+								total += articulo.getPrecio();
 						%>
 								<tr>
 									<th scope="row"><%=articulo.getId()%></th>
@@ -40,7 +42,13 @@
 									<td><%=articulo.getPrecio()%></td>
 									<td><%=articulo.getAutor()%></td>
 									<td><%=articulo.getImg()%></td>
-									<td>Editar | 
+									<td>
+										<a class="btn btn-info" 
+											role="button" 
+											href="<%=request.getContextPath()%>/UpdateArticuloController?id=<%=articulo.getId()%>">
+												Editar
+										</a>
+										 | 
 										<!-- Button trigger modal -->
 										<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
 											onclick="setId(<%=articulo.getId()%>)">
@@ -52,6 +60,16 @@
 							}
 						%>						
 					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2" align="right">
+								Total $ 
+							</td>
+							<td colspan="4">
+								<%=total%>
+							<td>
+						</tr>
+					</tfoot>
 				</table>
 			</div>
 		</div>

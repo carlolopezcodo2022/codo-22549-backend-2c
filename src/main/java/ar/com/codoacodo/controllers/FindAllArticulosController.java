@@ -24,7 +24,6 @@ public class FindAllArticulosController extends HttpServlet {
 		List<Articulo> articulosBuscado = new ArrayList<>();
 		try {
 			articulosBuscado = dao.findAll();		
-			System.out.println(articulosBuscado);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
